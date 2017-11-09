@@ -1,125 +1,231 @@
-\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\moderncvstyle{casual} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\documentclass[]{deedy-resume-openfont}
 
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
-
-\usepackage[scale=0.75]{geometry} % Reduce document margins
-%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
-%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
-
-%----------------------------------------------------------------------------------------
-%	NAME AND CONTACT INFORMATION SECTION
-%----------------------------------------------------------------------------------------
-
-\firstname{Aruna} % Your first name
-\familyname{Sankaranarayanan} % Your last name
-
-% All information in this block is optional, comment out any lines you don't need
-\title{Curriculum Vitae}
-\email{aruna.evam@gmail.com}
-\homepage{http://gardengnoming.wordpress.com}
-\extrainfo{github : http://github.com/anura28}
-
-%----------------------------------------------------------------------------------------
 
 \begin{document}
 
-\makecvtitle % Print the CV title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
 
-%----------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%----------------------------------------------------------------------------------------
-
-\section{Education}
-
-\cventry{2009--2013}{Bachelor of Engineering in Computer Science}{B.M.S.I.T}{Bangalore}{\textit{80.65\%}}{First Class With Distinction, 5th in my class.}  % Arguments not required can be left empty
-\cventry{2007--2009}{Intermediate, CBSE}{Kendriya Vidyalaya Malleswaram}{Bangalore}{\textit{92.4\%}}{Physics, Chemistry, Mathematics, Computer Science(C++)}
-\cventry{2007}{Matriculation, CBSE}{Kendriya Vidyalaya Malleswaram}{Bangalore}{\textit{96\%}}{Science, Mathematics, English, Sanskrit, Social Studies}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
+\namesection{Aruna}{Sankaranarayanan}{\href{mailto:aruna.evam@gmail.com}{aruna.evam@gmail.com} | 7829.653.593
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{BMSIT}
+\descript{BE in Computer Science}
+\location{June 2013 | Bangalore, India}
+\location{ 80.6\% \\
+5th out of 120 students}
+\sectionsep
+
+\subsection{K.V Malleswaram}
+\location{Grad. May 2009|  Bangalore, India}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+Github:// \href{https://github.com/arunasank}{\custombold{arunasank}} \\
+LinkedIn://  \href{https://www.linkedin.com/in/arunasank}{\custombold{arunasank}} \\
+Twitter://  \href{https://twitter.com/arunasank}{\custombold{@arunasank}} \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+\subsection{Undergraduate}
+Operating Systems \\
+Simulations Science \\
+Operations Research \\
+Logic and Automata Theory \\
+Advanced Mathematics \\
+Discrete mathematics \\
+Graph theory \\
+Unix Tools and Scripting \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\location{Over 5000 lines:}
+Shell \textbullet{} JavaScript \textbullet{} Matlab \\
+Python \textbullet{} HTML \textbullet{} C \\
+\location{Over 1000 lines:}
+C++ \textbullet{} CSS \textbullet{} PHP \textbullet{} Assembly \\
+\location{Familiar:}
+PhoneGap \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Experience}
 
-\subsection{Vocational}
+\runsubsection{Mapbox}
+\descript{| Data/Systems Engineer }
+\location{October 2015 - | Bangalore, India}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}
+\item Data tooling for OpenStreetMap. Built \textbf{\href{https://github.com/mapbox/osm-tag-stats/issues}{open-source}} \textbf{\href{https://github.com/mapbox/osm-edit-report-deprecated/graphs/contributors}{tools}} to analyse Earth data using MapReduce algorithms. Visualised large and complex geospatial data networks.
+\item Worked on \textbf{\href{https://github.com/mapbox/carmen/}{Carmen}}, our open-source geocoder. Pre-processed, munged, loaded large swathes of geo-data. Helped improve the design of the geocoder.
+\item Overall infrastructure, parallel computing, and distributed systems at Mapbox.
+\end{tightemize}
+\sectionsep
 
-\cventry{August, 2013--March 4th, 2014}{Graduate Trainee Engineer}{\textsc{Fidelity Investments}}{Bangalore}{}{UI development for Financial applications
-\newline{}
-\begin{itemize}
-\item Juggling a full time job along with open source contributions and pet projects.
-\end{itemize}}
+\runsubsection{Brainwave}
+\descript{| Lead game engineer }
+\location{Feb 2014 - August 2015 | Bangalore, India}
+\begin{tightemize}
+\item Part of two member founding engineering team to build an Android, iOS and regular web-app from scratch, in one year, containing an interactive science game suite for children. Used HTML5, JavaScript, Heroku, PhoneGap and Cordova.
+\item Wrote code and articles for our in-house science magazine. Also, implemented coding best practises, version control, efficient systems around mantaining software. Managed interns and recruitment.
+\end{tightemize}
+\sectionsep
 
-\cventry{March 5th, 2014 - Present}{Application developer}{\textsc{ Brainwave Edutainment}}{Bangalore}{}{
-Part of a 2 member team that has created http://planet-s.herokuapp.com right from the architecture, database and front-end edvelopment.
-\newline{}
-\begin{itemize}
-\item  The app is currently being built for hand-held devices and has been released in the iStore and android store.
-\end{itemize}}
+\runsubsection{Fidelity Investments}
+\descript{| UI designer}
+\location{August 2013 – January 2013 | Bangalore, India}
+\begin{tightemize}
+\item Fixed user interface bugs in prorietary software built in-house at Fidelity.
+\end{tightemize}
+\sectionsep
 
-%------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     OPEN SOURCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cventry{July--September, 2013}{OPW Intern}{\textsc{GNOME Foundation}}{(Remote)}{}{Worked extensively on git and Mallard. Documented and fixed small UI bugs for Seahorse and GNOME Clocks}
+\section{Open Source}
+\runsubsection{GNOME}
+\descript{| Developer, contributor, Outreachy Intern}
+\location{October 2012 - December 2014 | Remote}
+Wrote user and technical documentation and fixed user-interface bugs.
+\sectionsep
 
-\cventry{May, 2014--September, 2014}{Co-mentor}{\textsc{GCompris, GSoc}}{(Remote)}{}{Co-mentored a student in the Google Summer of Code for the GCompris project.}
-%------------------------------------------------
+\runsubsection{GCompris}
+\descript{| Developer, mentor}
+\location{March 2015 | Remote}
+Ported activities from Python to an MVC based architecture in Qt/Qml and JavaScript.
+Mentored students during two editions of the Google Summer of Code in 2015 and 2016.
+\sectionsep
 
-\section{Projects}
+\runsubsection{OpenStreetMap}
+\descript{| Contributor}
+\location{October 2014 - | Remote}
+Collect, organise and label geo-data on OpenStreetMap. Build tools and maps.
+\sectionsep
 
-\cvitem{\emph{Processing: Games and simulations}}{}
-\cvitem{}{Ultimate Tic Tac Toe, Pledge Algorithm Simulation, Dynamic Programming example simulation, game to teach binary}
-\cvitem{\emph{Shoot fish!}}{}
-\cvitem{}{OpenGL game, made as part of coursework.}
-\cvitem{\emph{Simulation}}{}
-\cvitem{}{Java based simulation of the IEEE paper, 'Automatic reconfiguration of large scale storage systems'}
-\cvitem{\emph{GCompris commits}}{}
-\cvitem{}{Contributed to an open source project called GCompris - ports of 3 activities}
-\cvitem{\emph{HistoryThinking Skills}}{}
-\cvitem{}{Working on a project to improve historical analysis skills in high school children through a Qt-Quick, Javascript application}
-\cvitem{\emph{Raga}}{}
-\cvitem{}{App to help people to identify a carnatic raga by playing the swaras in the Arohana and Avarohana }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     CONFERENCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Conferences}
+\begin{tabular}{rll}
+March 2012       & Attendee (through selection) & Summer School, IISc \\
+Aug, 2013	     & Speaker (Scholarship) & GUADEC, Annual GNOME conference\\
+Oct, 2014	     & Speaker (Scholarship) & Scratch workshop, Hillhacks, Dharamsala\\
+Dec, 2014	     & Attendee & Science and Maths communication workshop\\
+Jul, 2016	     & Speaker & The Fifth Elephant, Bangalore\\
+Jul, 2017	     & Speaker & rootConf, Bangalore\\
+\end{tabular}
+\sectionsep
 
-\subsection{Miscellaneous}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SOCIETIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cventry{July, 2013 -- January 2014}{Freelance technical columnist}{The Hindu}{Bangalore}{}{Articles on things that catch my wonder and fascination.}
-\cventry{2011 -- Present}{Member}{Free Software Movement Karnataka}{Bangalore}{}{FOSS workshops, talks, general enthusiasm and evangelism.}
-\cventry{July,2013 -- Present}{Member}{GNOME Foundation}{USA}{}{Docs team member, working on a plugin for the GNOME Text editor gEdit}
+\section{Awards} 
 
-%----------------------------------------------------------------------------------------
-%	AWARDS SECTION
-%----------------------------------------------------------------------------------------
+\begin{tabular}{rll}
+2007 	& top 1\%ile    & National level web developer, Oracle\\
+2015   & international   & United Nations award for best Civic Visualisation\\
+\end{tabular}
+\sectionsep
 
-\section{Awards}
-
-\cvitem{2009}{Oracle Think.com school web developer award, national level}
-\cvitem{2013}{GNOME OPW international scholarship and internship}
-\cvitem{2013}{Google Documentation Camp, California. Authored a book on Mallard}
-
-%----------------------------------------------------------------------------------------
-%	COMPUTER SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-\section{Computer skills}
-
-\cvitem{Basic}{Python, InkScape, \LaTeX,\textsc{mongoDB}, shell scripting}
-\cvitem{Intermediate}{\textsc{Java}, \textsc{C++}, My\textsc{SQL}, \textsc{JavaScript},\textsc{kendoUI}, Linux}
-\cvitem{Advanced}{Processing, Processing.js, git, \textsc{html},}
-
-%----------------------------------------------------------------------------------------
-%	COMMUNICATION SKILLS SECTION
-%----------------------------------------------------------------------------------------
-
-\section{Talks/ hackfests}
-
-\cvitem{Aug, 2013}{GUADEC, Brno, Czech republic}
-\cvitem{Oct, 2013}{Google Doc Camp, San Francisco}
-\cvitem{Dec, 2013}{Workshop : "Build a small interactive game with Processing"}
-\cvitem{Jan, 2014}{Docathon: Worked on a manual to implement programs in the Engineering syllabus using free software.}
-\cvitem{Oct, 2014}{Scratch Workshop, Hill Hacks}
-\cvitem{Dec, 2014}{Creative Maths and Science Communication Workshop, IMSc, Chennai}
-
-\end{document}
+\end{minipage} 
+\end{document}  \documentclass[]{article}
