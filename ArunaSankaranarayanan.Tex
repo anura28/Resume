@@ -1,231 +1,225 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classicthesis-Styled CV
 % LaTeX Template
-% Version 1.1 (30/4/2014)
+% Version 1.0 (22/2/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
 %
 % Original author:
-% Debarghya Das (http://debarghyadas.com)
+% Alessandro Plasmati
 %
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[]{deedy-resume-openfont}
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
 
+\documentclass{scrartcl}
 
+\reversemarginpar % Move the margin to the left of the page 
+
+\newcommand{\MarginText}[1]{\marginpar{\raggedleft\itshape\small#1}} % New command defining the margin text style
+
+\usepackage[nochapters]{classicthesis} % Use the classicthesis style for the style of the document
+\usepackage[LabelsAligned]{currvita} % Use the currvita style for the layout of the document
+
+\renewcommand{\cvheadingfont}{\LARGE\color{Black}} % Font color of your name at the top
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\hypersetup{colorlinks, breaklinks, urlcolor=SkyBlue, linkcolor=SkyBlue} % Set link colors
+
+\newlength{\datebox}\settowidth{\datebox}{Spring 2011} % Set the width of the date box in each block
+
+\newcommand{\NewEntry}[3]{\noindent\hangindent=2em\hangafter=0 \parbox{\datebox}{\small \textit{#1}}\hspace{1.5em} #2 #3 % Define a command for each new block - change spacing and font sizes here: #1 is the left margin, #2 is the italic date field and #3 is the position/employer/location field
+\vspace{0.5em}} % Add some white space after each new entry
+
+\newcommand{\Description}[1]{\hangindent=2em\hangafter=0\noindent\raggedright\footnotesize{#1}\par\normalsize\vspace{1em}} % Define a command for descriptions of each entry - change spacing and font sizes here
+\newenvironment{myitemize}
+{ \begin{itemize}
+    \footnotesize\setlength{\itemsep}{0pt}
+    \footnotesize\setlength{\parskip}{0pt}
+    \footnotesize\setlength{\parsep}{0pt}     }
+{ \end{itemize}                  }  %custom list syntax 
+
+%----------------------------------------------------------------------------------------
+\date{}
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     LAST UPDATED DATE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lastupdated
+\thispagestyle{empty} % Stop the page count at the bottom of the first page
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     TITLE NAME
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
 
+\begin{cv}{\spacedallcaps{Aruna Sankaranarayanan}} % Your name
 
-\namesection{Aruna}{Sankaranarayanan}{\href{mailto:aruna.evam@gmail.com}{aruna.evam@gmail.com} | 7829.653.593
-}
+\centering{\href{mailto:aruna.evam@gmail.com}{aruna.evam@gmail.com} $\cdotp$\ {7829.653.593}} % Birthplace and date
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------
 
-\begin{minipage}[t]{0.33\textwidth} 
+\vspace{1em} % Extra space between major sections
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
 
-\section{Education} 
+\spacedlowsmallcaps{Education}\vspace{1em}
 
-\subsection{BMSIT}
-\descript{BE in Computer Science}
-\location{June 2013 | Bangalore, India}
-\location{ 80.6\% \\
-5th out of 120 students}
-\sectionsep
+\NewEntry{2009 - 2013}{BMS Institute of Technology}
 
-\subsection{K.V Malleswaram}
-\location{Grad. May 2009|  Bangalore, India}
-\sectionsep
+\Description{\MarginText{BE, Computer Science}Score: 80.6\%\ \ $\cdotp$\ \ \textit{First Class With Distinction}\ \ $\cdotp$\ \ Ranked 4th out of 90 students \ \ $\cdotp$\ \ \newline 
+Thesis: \textit{\href{http://ieeexplore.ieee.org/document/5593239/}{Automatic Reconfiguration for Large-Scale Reliable
+Storage Systems}}\newline
+Description: This thesis was a working prototype of a Byzantine fault tolerant system - an implementation of the IEEE paper by the same name - that helped manage membership in dynamically changing systems. Used Java, Swing, J2ME and MsAccess.\newline Advisors: Prof.Hemamalini B.R.\\\vspace{1.5mm}
+Seminar: \textit{\href{https://pdfs.semanticscholar.org/a5b4/cd14aae04851d952413fcb290ed60678021d.pdf}{Hole detection}} Implemented a working prototype to detect holes in graph networks, where nodes represented wireless sensor nodes and weighted edges represented communication strength between the nodes. Used Matlab for the implementation.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     LINKS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\centering\spacedlowsmallcaps{Honors}
+\begin{myitemize} 
+  \item {2015} The Chennai Flood Map; United Nations recognition
+  \item {2014} \textit{hillhacks 0} scholarship
+  \item {2013} Scholarship to write a book on Mallard; Floss Manuals and Google 
+  \item {2013} Outreachy scholarship; GNOME
+  \item {2012} One out of 50 Indian students, selected (by application) to attend a week-long summer school on research in computer science; IISc
+  \item {2007} National level web developer award in the under 15 years category; Oracle Think.com
+\end{myitemize}
 
-\section{Links} 
-Github:// \href{https://github.com/arunasank}{\custombold{arunasank}} \\
-LinkedIn://  \href{https://www.linkedin.com/in/arunasank}{\custombold{arunasank}} \\
-Twitter://  \href{https://twitter.com/arunasank}{\custombold{@arunasank}} \\
-\sectionsep
+\centering\spacedlowsmallcaps{Talks, Workshops \& Conferences}
+\begin{myitemize}
+  \item {2017} {(Speaker)} \href{https://rootconf.talkfunnel.com/2017/72-spotswap-running-production-apis-on-spot-instances}{rootConf}: \href{https://www.youtube.com/watch?v=XQJ7YhVoSWI}{Talk}
+  \item {2016} {(Speaker)} \href{https://fifthelephant.talkfunnel.com/2016/40-reducing-the-world-with-javascript}{Fifth Elephant}: \href{https://www.youtube.com/watch?v=KtUMS47TNNM}{Talk}
+  \item {2015} {(Speaker)} Lightning talk about the gender map at Open Data Conference, Datameet, Delhi
+  \item {2015} {(Organiser, Attendee)} School Program, \textit{hillhacks 1}
+  \item {2014} {(Speaker, Attendee)} Scratch Workshop, \textit{hillhacks 0}
+  \item {2014} {(Speaker)} Workshop on Processing, FSMK
+  \item {2014} {(Attendee)} Creative Maths and Science Communication Workshop, IMSc, Chennai
+  \item {2013} {(Speaker)} Lightning Talk on my work in the Outreachy Internship, GUADEC 
+\end{myitemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     COURSEWORK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\centering\spacedlowsmallcaps{Selected Press \& Media}
+\begin{myitemize}
+  \item {Dec, 2015} {Chennai Flood Map}
+    \begin{myitemize}
+      \item \href{https://tinyurl.com/y8zmhjb8}{The city’s flood map goes global}, The Hindu 
+      \item \href{https://tinyurl.com/yagtulwt}{Her App That Saved Many Lives During Chennai Floods Is Now Among UN Selections, But This Techie Wants To Do More For People}, India Times
+      \item \href{https://tinyurl.com/y94mduyo}{This app by a Bengaluru girl that saved several lives during Chennai floods, will now inspire thousands at the UN Ecuador Conference}, Business Insider
+      \item \href{https://tinyurl.com/y9hv33go}{This Chennai map will show you exactly which waterlogged area, road you need to avoid}, The Times of India
+      \item \href{https://tinyurl.com/zj77c24}{Now here's a map to help you report and avoid flooded streets in Chennai}, Firstpost
+      \item \href{https://tinyurl.com/y9b8uof6}{This ingenious Chennai Map shows which areas are currently flooded}, Business Insider
+      \item \href{https://tinyurl.com/y9l2hve9}{Citizens build map data flooded Chennai using open source maps}, Geospatial Media
+      \item \href{https://tinyurl.com/y8jznfc8}{Bangalore techies build app to help Chennai flood victims}, Gadgets Now
+    \end{myitemize}
+  \item {Nov, 2015} {Gender Map}
+    \begin{myitemize}
+      \item \href{https://tinyurl.com/ybrjjmbq}{Mapping the Sexism of City Street Names}, CityLab, The Atlantic
+      \item \href{https://tinyurl.com/y6urpyzs}{Mapping female versus male street names}, mapbox blog
+      \item \href{https://tinyurl.com/y9mrf4yp}{Does San Francisco Have Mostly Gender-Biased Street Names?}, SF Curbed
+      \item \href{https://tinyurl.com/ybsqcmv5}{You see this Gender Bias on the road every day}, Huffington Post
+      \item \href{https://tinyurl.com/yabajxj2}{Mapping the Gender Imbalance in City Street Names}, Hyperallergic
+      \item \href{https://tinyurl.com/ycpn4hmw}{Shock news: street names are sexist}, City Metric
+      \item \href{https://tinyurl.com/jypreu7}{Where the streets have no (female) names}, LiveMint
+      \item \href{https://tinyurl.com/ya93krx2}{Do You Know Many Roads in Your City are Named After Women?}, The Ladies Finger
+   \end{myitemize}
+\end{myitemize}
 
-\section{Coursework}
-\subsection{Undergraduate}
-Operating Systems \\
-Simulations Science \\
-Operations Research \\
-Logic and Automata Theory \\
-Advanced Mathematics \\
-Discrete mathematics \\
-Graph theory \\
-Unix Tools and Scripting \\
-\sectionsep
+\vspace{1em}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\centering\spacedlowsmallcaps{Independent Projects}\vspace{1em}
 
-\section{Skills}
-\subsection{Programming}
-\location{Over 5000 lines:}
-Shell \textbullet{} JavaScript \textbullet{} Matlab \\
-Python \textbullet{} HTML \textbullet{} C \\
-\location{Over 1000 lines:}
-C++ \textbullet{} CSS \textbullet{} PHP \textbullet{} Assembly \\
-\location{Familiar:}
-PhoneGap \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
-\sectionsep
+\Description{\MarginText{\href{http://github.com/mapbox/osm-mockingbird}{OSM mockingbird}} \textit{\textbf{September 2017}} (WIP) Working on a Statistical Machine Transliteration project to transliterate street names in India from English to indic languages. Using MapReduce algorithms in NodeJS to extract the street names from OpenStreetMap and the Moses Translation Engine for the actual transliteration. Tokenising, and syllabifying data from the \href{http://www.cfilt.iitb.ac.in/brahminet/static/register.html}{Brahminet corpus}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Description{\MarginText{Analysing India's rail network} \textit{\textbf{September 2017}} (WIP) Working on a project to run statistical analysis on the railway network in India using open data from Datameet}
 
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.66\textwidth} 
+\Description{\MarginText{Map design} Designed maps in a pro bono capacity.
+\begin{myitemize}
+  \item {2017} \href{https://www.internetshutdowns.in/}{The Internet Shutdowns Tracker} for \href{https://sflc.in}{SFLC}
+  \item {2016} \href{https://thelifeofscience.com/places-weve-gone/}{List of places visited} by \href{https://thelifeofscience.com/}{The Life of Science project}
+\end{myitemize}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Description{\MarginText{\href{http://datameet.org/2016/02/14/analysing-bangalores-bus-network/}{Analysing Bangalore's bus Network}} \textit{\textbf{Feb 2016}} Developed scripts and visualisations to analyse open data of the bus network in Bangalore with a team mate from Mapbox. Specifically built MapReduce scripts to extract the street network and analyse it. Used Mapbox libraries to visualise the results.}
 
-\section{Experience}
+\Description{\MarginText{\href{https://github.com/osm-in/flood-map/}{The Chennai flood map}} \textit{\textbf{Dec' 2015}} Conceptualised and led the implementation of a web map to crowd source information about flooded streets in Chennai using Mapbox libraries. At peak usage, the app had at least 200K users. The project has inspired similar projects \href{riskmap.in/map/chennai}{by MIT}, and citizen led flood response movements in \href{https://github.com/tailwindlabs/flood-map}{Houston} and Dar es Salaam among others}
 
-\runsubsection{Mapbox}
-\descript{| Data/Systems Engineer }
-\location{October 2015 - | Bangalore, India}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Data tooling for OpenStreetMap. Built \textbf{\href{https://github.com/mapbox/osm-tag-stats/issues}{open-source}} \textbf{\href{https://github.com/mapbox/osm-edit-report-deprecated/graphs/contributors}{tools}} to analyse Earth data using MapReduce algorithms. Visualised large and complex geospatial data networks.
-\item Worked on \textbf{\href{https://github.com/mapbox/carmen/}{Carmen}}, our open-source geocoder. Pre-processed, munged, loaded large swathes of geo-data. Helped improve the design of the geocoder.
-\item Overall infrastructure, parallel computing, and distributed systems at Mapbox.
-\end{tightemize}
-\sectionsep
+\Description{\MarginText{\href{https://github.com/mapbox/gender-map}{The gender map}} \textit{\textbf{Oct 2015}} Analysis of the gender of eponymous street names. The names were retrieved using MapReduce algorithms from the OpenStreetMap project.}
 
-\runsubsection{Brainwave}
-\descript{| Lead game engineer }
-\location{Feb 2014 - August 2015 | Bangalore, India}
-\begin{tightemize}
-\item Part of two member founding engineering team to build an Android, iOS and regular web-app from scratch, in one year, containing an interactive science game suite for children. Used HTML5, JavaScript, Heroku, PhoneGap and Cordova.
-\item Wrote code and articles for our in-house science magazine. Also, implemented coding best practises, version control, efficient systems around mantaining software. Managed interns and recruitment.
-\end{tightemize}
-\sectionsep
+\Description{\MarginText{\href{https://commons.wikimedia.org/wiki/Special:Contributions/Arunasank}{Archiving Indian classical music in the public domain}} \textit{\textbf{2015 - Present}} I am trying to improve the presence of Indian Classical music in the public domain by collecting such music from renowned artists, uploading my own recordings and finding music that is free of copyright. I have improved the number of such recordings on Wikimedia Commons from 0 to around 50.}
+\vspace{1em} % Extra white space between the personal information section and goal
 
-\runsubsection{Fidelity Investments}
-\descript{| UI designer}
-\location{August 2013 – January 2013 | Bangalore, India}
-\begin{tightemize}
-\item Fixed user interface bugs in prorietary software built in-house at Fidelity.
-\end{tightemize}
-\sectionsep
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     OPEN SOURCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\centering\spacedlowsmallcaps{Work Experience}\vspace{1em}
 
-\section{Open Source}
-\runsubsection{GNOME}
-\descript{| Developer, contributor, Outreachy Intern}
-\location{October 2012 - December 2014 | Remote}
-Wrote user and technical documentation and fixed user-interface bugs.
-\sectionsep
+\NewEntry\mbox{Oct '15 -- Present}\qquad{Data \& Systems Engineer}
 
-\runsubsection{GCompris}
-\descript{| Developer, mentor}
-\location{March 2015 | Remote}
-Ported activities from Python to an MVC based architecture in Qt/Qml and JavaScript.
-Mentored students during two editions of the Google Summer of Code in 2015 and 2016.
-\sectionsep
+\Description{\MarginText{Mapbox} \textit{\textbf{Oct 2015 - Oct 2016}}: Built open tools and analytics dashboards using JavaScript, HTML5, nodeJS and d3 for OpenStreetMap. Pre-processed, munged and loaded data for the Mapbox geocoder. Built features into our open-source vector-tile based geocoder, \href{https://github.com/mapbox/carmen}{Carmen}. Worked on implementing data tokenization, data prioritisation, adding synonyms, ranking the data, based on its geographical importance etc.\\\vspace{1.5mm}
+\textit{\textbf{April 2016 - Present}}: Worked on over-arching infrastructure, distributed systems and systems engineering at Mapbox. Worked with resources from the AWS market to build in-memory caches; in a second run a year later, I dockerised these caches. I also architected cache-clearance systems, continuous build systems, migrated several TBs of data from one origin region to another and helped move our stacks from a server-based infrastructure to a dockerised infrastructure. I was a core member in the team that designed, benchmarked, evaluated and released the architecture that helped Mapbox to launch with Snapchat. We scaled our systems to receive 10X the traffic without a marked increase in the cost.}
 
-\runsubsection{OpenStreetMap}
-\descript{| Contributor}
-\location{October 2014 - | Remote}
-Collect, organise and label geo-data on OpenStreetMap. Build tools and maps.
-\sectionsep
+%------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     CONFERENCES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewEntry\mbox{Jan '14--Aug '15}\qquad{Lead game engineer}
 
-\section{Conferences}
-\begin{tabular}{rll}
-March 2012       & Attendee (through selection) & Summer School, IISc \\
-Aug, 2013	     & Speaker (Scholarship) & GUADEC, Annual GNOME conference\\
-Oct, 2014	     & Speaker (Scholarship) & Scratch workshop, Hillhacks, Dharamsala\\
-Dec, 2014	     & Attendee & Science and Maths communication workshop\\
-Jul, 2016	     & Speaker & The Fifth Elephant, Bangalore\\
-Jul, 2017	     & Speaker & rootConf, Bangalore\\
-\end{tabular}
-\sectionsep
+\Description{\MarginText{Brainwave} \textit{\textbf{Jan '14 - Aug '15}}: Lead game engineer and founding member of the engineering team at Brainwave. As part of a two member engineering team I implemented 30 science game kits, and a web interface and backend to house these kits. The web app took us a year to build and worked on all modern browsers. We also turned the web app into an iOS and Android app using PhoneGap and Cordova. \\\vspace{1.5mm}
+Implemented version control systems, coding best practises, systems and processes for building, testing and maintaining code. I also wrote articles for the science magazine, Brainwave.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SOCIETIES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------
 
-\section{Awards} 
+\NewEntry\mbox{Aug '13--Jan '14}\qquad{UI Engineer}
 
-\begin{tabular}{rll}
-2007 	& top 1\%ile    & National level web developer, Oracle\\
-2015   & international   & United Nations award for best Civic Visualisation\\
-\end{tabular}
-\sectionsep
+\Description{\MarginText{Fidelity Investments} \textit{\textbf{Aug '13 - Jan '14}}: Fixed UI bugs on proprietary web applications built using C\#}
 
-\end{minipage} 
-\end{document}  \documentclass[]{article}
+\NewEntry\mbox{Aug '13--Jan '14}\qquad{Writer}
+
+\Description{\MarginText{The Hindu} \textit{\textbf{Jan '13 - Jan '14}}: Wrote a fortnightly column, The Edge, for The Hindu talking about developments in computer science and free and open source software. Estimated readership: 22.33 lakhs.}
+
+\NewEntry\mbox{Jun '12--Aug '12}\qquad{Research Intern}
+
+\Description{\MarginText{BMSIT} \textit{\textbf{Jun '12 - Aug '12}}: Implemented an algorithm to decipher the real life sizes of objects in an image, based on the size of a static CD in the image, using openCV and Matlab. The algorithm used image processing techniques like region of interest isolation, segmentation and generating binary images to calculate the CD size in the image, and used it to calculate measurements of other lines drawn by a user on the image.}
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\centering\spacedlowsmallcaps{Open Source contributions}\vspace{1em}
+
+\NewEntry\mbox{Oct '13 - June '15}\qquad{Developer}
+
+\Description{\MarginText{GCompris Project}Helped porting a set of activities from the Python based GCompris project to its Qt-QML variant. Mentored students during the 2014 and 2015 cycles of the Google Summer of Code.}
+
+%------------------------------------------------
+
+\NewEntry\mbox{Oct '12 - June '15 \qquad Contributor}
+
+\Description{\MarginText{GNOME}Wrote technical and user documentation for the GNOME Foundation and fixed several user interface bugs. Developed a comprehensive understanding of the XML based templating language, Mallard, used for documentation, and was funded to write a book about it at the Google Documentation Camp in 2014. I was also a member of the GNOME Foundation from June 2013  - June 2015.}
+
+\NewEntry\centering\mbox{April '12 - Present}\qquad{Contributor}
+
+\Description{\MarginText{Wikipedia}I create and improve content on women to reduce the gender bias on Wikipedia. I also create and improve content related to Carnatic music }
+
+\NewEntry\mbox{Jun '11 - Aug '14}\qquad{Contributor}
+
+\Description{\MarginText{Free Software Movement, Karnataka}Volunteered and helped organise conferences to evangelise open source and teach the usage of open source libraries in engineering colleges in Karnataka. Taught Linux usage to housewives and helped small shops and businesses move from Windows to Linux.}
+
+%------------------------------------------------
+
+\vspace{1em} % Extra space between major sections
+
+%----------------------------------------------------------------------------------------
+%	OTHER INFORMATION
+%----------------------------------------------------------------------------------------
+
+\centering\spacedlowsmallcaps{Other Interests}\vspace{1em}
+
+\Description{\MarginText{Music} \textit{\textbf{1996 - Present}}: Trained singer in the Carnatic tradition. I especially focus on learning and performing the Thiruppugazh (Ancient Tamil Bhakti poetry from the 6th century) in the Carnatic style.}
+
+\end{cv}
+
+\end{document}
